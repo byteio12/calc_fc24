@@ -1,0 +1,97 @@
+:root {
+    --bg: #121212;
+    --panel: #1a1a1a;
+    --accent: #01ed65;
+    --accent-2: #34c966;
+    --btn: #232323;
+    --btn-hover: #2a2a2a;
+    --text: #f1f1f1;
+    --text-dark: #0a0a0a;
+    --danger: #ff5252;
+}
+
+* { box-sizing: border-box; }
+
+@font-face {
+    font-family: 'FIFA Welcome';
+    src: url('fifawelcome1.3.ttf') format('truetype');
+    font-display: swap;
+    font-weight: 400;
+    font-style: normal;
+}
+
+body {
+    background-color: var(--bg);
+    font-family: 'FIFA Welcome', Arial, Helvetica, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    color: var(--text);
+    margin: 0;
+}
+
+.calculator {
+    background: var(--panel);
+    padding: 20px;
+    border-radius: 12px;
+    width: min(92vw, 380px);
+    border-left: 6px solid var(--accent);
+    box-shadow: 0 6px 24px rgba(0,0,0,0.35);
+}
+
+.display {
+    width: 100%;
+    height: 64px;
+    font-size: 28px;
+    text-align: right;
+    margin-bottom: 14px;
+    padding: 12px 10px;
+    border: none;
+    border-radius: 8px;
+    background: #0f0f0f;
+    color: var(--text);
+}
+
+.buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+}
+
+button.btn {
+    height: 56px;
+    font-size: 18px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    background: var(--btn);
+    color: var(--text);
+    transition: background 0.15s ease, transform 0.05s ease;
+}
+
+button.btn:hover { background: var(--btn-hover); }
+button.btn:active { transform: translateY(1px); }
+
+button.btn:focus-visible {
+    outline: 3px solid var(--accent);
+    outline-offset: 2px;
+}
+
+/* replaced by .btn:hover */
+
+.equal {
+    background: var(--accent);
+    color: var(--text-dark);
+}
+
+.equal:hover { background: var(--accent-2); }
+
+/* handled above */
+
+.zero { grid-column: span 2; }
+
+.control[data-action="delete"] { background: #2a1f1f; }
+.control[data-action="delete"]:hover { background: #3a2a2a; }
+.control[data-action="clear"] { background: #202028; }
+.control[data-action="clear"]:hover { background: #2a2a32; }
